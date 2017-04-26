@@ -13,7 +13,7 @@ import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import ie.markomeara.irelandtraintimes.R;
-import ie.markomeara.irelandtraintimes.data.IrishRailApi;
+import ie.markomeara.irelandtraintimes.data.IrishRailService;
 import ie.markomeara.irelandtraintimes.di.Injector;
 import ie.markomeara.irelandtraintimes.model.Station;
 
@@ -24,14 +24,18 @@ import ie.markomeara.irelandtraintimes.model.Station;
 public class StationListFragment extends Fragment implements StationListContract.View {
 
     @Inject
-    IrishRailApi irishRailApi;
+    IrishRailService irishRailService;
 
     private StationListContract.Presenter presenter;
+
+    public static StationListFragment newInstance() {
+        return new StationListFragment();
+    }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.stationlist_fragment, container);
+        View view = inflater.inflate(R.layout.stationlist_fragment, container, false);
         ButterKnife.bind(this, view);
         Injector.get().inject(this);
         return view;
@@ -40,7 +44,7 @@ public class StationListFragment extends Fragment implements StationListContract
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        presenter = new StationListPresenter(this, irishRailApi);
+        presenter = new StationListPresenter(this, irishRailService);
     }
 
     @Override

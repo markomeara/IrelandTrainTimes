@@ -7,6 +7,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import ie.markomeara.irelandtraintimes.data.IrishRailApi;
+import ie.markomeara.irelandtraintimes.data.IrishRailService;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -48,6 +49,12 @@ public class AppModule {
                 .build();
 
         return retrofit.create(IrishRailApi.class);
+    }
+
+    @Singleton
+    @Provides
+    public IrishRailService providesIrishRailService(IrishRailApi irishRailApi) {
+        return new IrishRailService(irishRailApi);
     }
 
 }

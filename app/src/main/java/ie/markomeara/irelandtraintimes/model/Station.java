@@ -1,11 +1,13 @@
 package ie.markomeara.irelandtraintimes.model;
 
 import org.simpleframework.xml.Element;
+import org.simpleframework.xml.Root;
 
 /**
  * Created by markomeara on 19/04/2017.
  */
 
+@Root(name = "objStation")
 public class Station {
 
     @Element(name = "StationDesc")

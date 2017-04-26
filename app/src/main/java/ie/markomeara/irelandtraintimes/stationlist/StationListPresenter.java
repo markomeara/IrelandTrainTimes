@@ -1,6 +1,6 @@
 package ie.markomeara.irelandtraintimes.stationlist;
 
-import ie.markomeara.irelandtraintimes.data.IrishRailApi;
+import ie.markomeara.irelandtraintimes.data.IrishRailService;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
@@ -13,20 +13,20 @@ import static ie.markomeara.irelandtraintimes.util.ValidationUtil.checkNotNull;
 public class StationListPresenter implements StationListContract.Presenter {
 
     private StationListContract.View view;
-    private IrishRailApi irishRailApi;
+    private IrishRailService irishRailService;
 
-    public StationListPresenter(StationListContract.View view, IrishRailApi irishRailApi) {
+    public StationListPresenter(StationListContract.View view, IrishRailService irishRailService) {
         this.view = checkNotNull(view, "View cannot be null");
-        this.irishRailApi = checkNotNull(irishRailApi, "Irish rail API cannot be null");
+        this.irishRailService = checkNotNull(irishRailService, "irishRailService cannot be null");
     }
 
     @Override
     public void start() {
-        irishRailApi.getAllStations()
+        irishRailService.getAllStations()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                        stationList -> view.displayStations(stationList.getStations())
+                        stationList -> view.displayStations(stationList)
                 );
     }
 }
