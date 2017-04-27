@@ -1,0 +1,26 @@
+<ArrayOfObjStation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://api.irishrail.ie/realtime/">
+    <objStation>
+        <StationDesc>Belfast Central</StationDesc>
+        <StationAlias/>
+        <StationLatitude>54.6123</StationLatitude>
+        <StationLongitude>-5.91744</StationLongitude>
+        <StationCode>BFSTC</StationCode>
+        <StationId>228</StationId>
+    </objStation>
+    <objStation>
+        <StationDesc>Howth Junction</StationDesc>
+        <StationAlias>Donaghmede ( Howth Junction )</StationAlias>
+        <StationLatitude>53.3909</StationLatitude>
+        <StationLongitude>-6.15672</StationLongitude>
+        <StationCode>HWTHJ</StationCode>
+        <StationId>105</StationId>
+    </objStation>
+    <objStation>
+        <StationDesc>Dublin Pearse</StationDesc>
+        <StationAlias>Pearse</StationAlias>
+        <StationLatitude>53.3433</StationLatitude>
+        <StationLongitude>-6.24829</StationLongitude>
+        <StationCode>PERSE</StationCode>
+        <StationId>150</StationId>
+    </objStation>
+</ArrayOfObjStation>

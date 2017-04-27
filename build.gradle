@@ -31,7 +31,7 @@ ext {
 
     buildToolsVersion = "25.0.2"
 
-    appCompatVersion = "25.3.1"
+    supportLibraryVersion = "25.3.1"
     constraintLayout = "1.0.2"
     retrofitVersion = "2.2.0"
     daggerVersion = "2.9"
@@ -40,6 +40,8 @@ ext {
     butterknifeVersion = "8.5.1"
     rxAndroidVersion = "2.0.1"
 
+    okHttpIdlingResourceVersion = "1.0.0"
+    commonsIoVersion = "2.5"
     espressoVersion = "2.2.2"
     junitVersion = "4.12"
 }

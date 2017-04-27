@@ -6,15 +6,19 @@ package ie.markomeara.irelandtraintimes.di;
 
 public class Injector {
 
-    private static AppComponent sComponent = null;
+    private static AppComponent component = null;
 
     public static void init() {
-        if (sComponent == null) {
-            sComponent = DaggerAppComponent.builder().appModule(new AppModule()).build();
+        if (component == null) {
+            component = DaggerAppComponent.builder().appModule(new AppModule()).build();
         }
     }
 
     public static AppComponent get() {
-        return sComponent;
+        return component;
+    }
+
+    public static void setComponent(AppComponent component) {
+        Injector.component = component;
     }
 }
