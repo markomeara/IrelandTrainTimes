@@ -1,0 +1,3 @@
+<resources>
+    <dimen name="stationlist_row_height">32dp</dimen>
+</resources>

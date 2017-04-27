@@ -3,6 +3,8 @@ package ie.markomeara.irelandtraintimes.stationlist;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import ie.markomeara.irelandtraintimes.R;
 import ie.markomeara.irelandtraintimes.data.IrishRailService;
@@ -26,6 +29,10 @@ public class StationListFragment extends Fragment implements StationListContract
     @Inject
     IrishRailService irishRailService;
 
+    @BindView(R.id.station_list)
+    RecyclerView stationList;
+
+    private StationListAdapter stationListAdapter;
     private StationListContract.Presenter presenter;
 
     public static StationListFragment newInstance() {
@@ -45,6 +52,10 @@ public class StationListFragment extends Fragment implements StationListContract
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         presenter = new StationListPresenter(this, irishRailService);
+
+        stationList.setLayoutManager(new LinearLayoutManager(getContext()));
+        stationListAdapter = new StationListAdapter();
+        stationList.setAdapter(stationListAdapter);
     }
 
     @Override
@@ -55,6 +66,6 @@ public class StationListFragment extends Fragment implements StationListContract
 
     @Override
     public void displayStations(List<Station> stations) {
-        // TODO
+        stationListAdapter.updateStationsList(stations);
     }
 }
