@@ -39,9 +39,11 @@ ext {
     okHttpVersion = "3.7.0"
     butterknifeVersion = "8.5.1"
     rxAndroidVersion = "2.0.1"
+    rxJavaVersion = "2.0.9"
 
     okHttpIdlingResourceVersion = "1.0.0"
     commonsIoVersion = "2.5"
     espressoVersion = "2.2.2"
     junitVersion = "4.12"
+    mockitoVersion = "1.10.19"
 }

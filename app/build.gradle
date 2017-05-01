@@ -50,11 +50,15 @@ dependencies {
     compile "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofitVersion"
     compile "com.jakewharton:butterknife:$rootProject.butterknifeVersion"
     compile "io.reactivex.rxjava2:rxandroid:$rootProject.rxAndroidVersion"
+    compile "io.reactivex.rxjava2:rxjava:$rootProject.rxJavaVersion"
+
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
 
     annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
     provided "javax.annotation:jsr250-api:$rootProject.javaxAnnotationVersion"
+
     testCompile "junit:junit:$rootProject.junitVersion"
+    testCompile "org.mockito:mockito-all:$rootProject.mockitoVersion"
 }
 
 apply plugin: 'me.tatarka.retrolambda'
